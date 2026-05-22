@@ -1,2 +1,2 @@
-# Tienda_Virtual_GrupoX
-
+## Funcionalidades implementadas:
+- Catálogo de productos
