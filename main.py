@@ -5,13 +5,19 @@ from clases.usuario import Usuario, Cliente, Administrador
 print("¡Bienvenido a la Tienda Virtual en Consola!")
 
 mi_carrito = Carrito()
-tele = Producto("Televisor", 1200000, 5)
-celular = Producto("Celular", 800000, 10)
+
+# Creando una lista con el catálogo de productos disponible
+catalogo_productos = [
+    Producto("Televisor", 1200000, 5),
+    Producto("Celular", 800000, 10),
+    Producto("Audífonos", 150000, 15),
+    Producto("Computador", 2500000, 3)
+]
 
 continuar = True
 while continuar == True:
     print("\n--- MENÚ PRINCIPAL ---")
-    print("1. Ver productos disponibles")
+    print("1. Ver catálogo de productos")
     print("2. Agregar producto al carrito")
     print("3. Ver mi carrito de compras")
     print("4. Salir")
@@ -19,21 +25,16 @@ while continuar == True:
     opcion = input("Elige una opción (1-4): ")
     
     if opcion == "1":
-        print("\nProductos en la tienda:")
-        print("1. " + tele.nombre + " - Precio: $" + str(tele.obtener_precio()) + " - Stock: " + str(tele.obtener_stock()))
-        print("2. " + celular.nombre + " - Precio: $" + str(celular.obtener_precio()) + " - Stock: " + str(celular.obtener_stock()))
-        
+        print("\n--- CATÁLOGO DE PRODUCTOS ---")
+        # Usamos un ciclo para mostrar cada producto del catálogo con su número
+        posicion = 1
+        for prod in catalogo_productos:
+            print(str(posicion) + ". " + prod.nombre + " - Precio: $" + str(prod.obtener_precio()) + " - Stock: " + str(prod.obtener_stock()))
+            posicion = posicion + 1
+            
     elif opcion == "2":
-        print("\n¿Qué producto quieres agregar?")
-        print("1. " + tele.nombre)
-        print("2. " + celular.nombre)
-        elegido = input("Selecciona 1 o 2: ")
-        if elegido == "1":
-            mi_carrito.agregar_producto(tele)
-        elif elegido == "2":
-            mi_carrito.agregar_producto(celular)
-        else:
-            print("Opción no válida.")
+        # Dejamos esto simple por ahora, lo mejoraremos en la siguiente rama
+        print("\nFunción para agregar (se mejorará en la siguiente rama)")
             
     elif opcion == "3":
         mi_carrito.ver_carrito()
@@ -41,6 +42,3 @@ while continuar == True:
     elif opcion == "4":
         print("Gracias por usar la tienda. ¡Adiós!")
         continuar = False
-        
-    else:
-        print("Opción incorrecta, intenta de nuevo.")
