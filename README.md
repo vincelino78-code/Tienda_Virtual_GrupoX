@@ -1,4 +1,3 @@
-## Funcionalidades implementadas:
+## Funcionalidades y Características:
 - Catálogo de productos
-## Características:
 - Sistema de pago
